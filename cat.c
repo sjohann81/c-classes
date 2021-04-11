@@ -3,14 +3,14 @@
 #include "animal.h"
 #include "cat.h"
 
-void cat_food()
+void cat_food(struct cat_s const *cato)
 {
-	printf("cat food\n");
+	printf("[%s] eats cat food\n", cato->animal.name);
 }
 
-void cat_meow()
+void cat_meow(struct cat_s const *cato)
 {
-	printf("meeoww!\n");
+	printf("[%s] says meeoww!\n", cato->animal.name);
 }
 
 int cat_age(struct cat_s *cato)
@@ -30,7 +30,7 @@ void cat_ctor(struct cat_s *cato, char *name, int age, int weight)
 	animal_ctor(&cato->animal, name);
 	
 	/* initialize subclass attributes / virtual functions */
-	static struct animal_vtab_s const vtbl = {&cat_food, cat_meow};
+	static struct animal_vtab_s const vtbl = {&cat_food, &cat_meow};
 	cato->animal.vptr = &vtbl;
 	cato->age = age;
 	cato->weight = weight;

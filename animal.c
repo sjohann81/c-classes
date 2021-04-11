@@ -2,14 +2,14 @@
 #include <string.h>
 #include "animal.h"
 
-void animal_eat(struct animal_s *animal)
+void animal_eat(struct animal_s const *animal)
 {
-	(*animal->vptr->eat)();
+	(*animal->vptr->eat)(animal);
 }
 
-void animal_noise(struct animal_s *animal)
+void animal_noise(struct animal_s const *animal)
 {
-	(*animal->vptr->noise)();
+	(*animal->vptr->noise)(animal);
 }
 
 void animal_name(struct animal_s *animal)

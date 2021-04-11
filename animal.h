@@ -10,7 +10,7 @@ struct animal_vtab_s {
 	void (*noise)();
 };
 
-void animal_eat(struct animal_s *this);
-void animal_noise(struct animal_s *this);
-void animal_name(struct animal_s *this);
+void animal_eat(struct animal_s const *animal);
+void animal_noise(struct animal_s const *animal);
+void animal_name(struct animal_s *animal);
 void animal_ctor(struct animal_s *animal, char *name);
