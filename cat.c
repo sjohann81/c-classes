@@ -3,16 +3,21 @@
 #include "animal.h"
 #include "cat.h"
 
-void cat_food(struct cat_s const *cato)
+/* private methods */
+static void cat_food(struct cat_s const *cato);
+static void cat_meow(struct cat_s const *cato);
+
+static void cat_food(struct cat_s const *cato)
 {
 	printf("[%s] eats cat food\n", cato->animal.name);
 }
 
-void cat_meow(struct cat_s const *cato)
+static void cat_meow(struct cat_s const *cato)
 {
 	printf("[%s] says meeoww!\n", cato->animal.name);
 }
 
+/* public methods */
 int cat_age(struct cat_s *cato)
 {
 	return cato->age;

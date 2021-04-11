@@ -8,8 +8,7 @@ struct dog_s {
 	int weight;
 };
 
-void dog_food(struct dog_s const *dogo);
-void dog_bark(struct dog_s const *dogo);
+/* public methods */
 int dog_age(struct dog_s *dogo);
 int dog_weight(struct dog_s *dogo);
 void dog_ctor(struct dog_s *dogo, char *name, int age, int weight);

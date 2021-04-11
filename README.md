@@ -6,7 +6,7 @@ The following concepts of OOP are defined:
 
 ## Encapsulation
 
-Classes are implemented in C structs and are separated by individual header and implementation files.
+Classes are implemented in C structs and are separated by individual header and implementation files. Public method prototypes are exposed on the header, while private method prototypes are declared inside the implementation files. Private methods are declared as static, so they are only visible inside the class scope.
 
 ## Inheritance
 
@@ -14,4 +14,4 @@ Inheritance is implemented using a superclass / base class (Animal) and derived 
 
 ## Polymorphism
 
-Polymorphism is implemented by the use of virtual tables, initialized on class constructors. Derived class constructors call the base class constructor.
+Polymorphism is implemented by the use of virtual tables and pointers, initialized on class constructors. Derived class constructors call the base class constructor.
