@@ -2,19 +2,25 @@
 #include <string.h>
 #include "animal.h"
 
-void animal_eat(struct animal_s const *animal)
+void animal_eat(void *animal)
 {
-	(*animal->vptr->eat)(animal);
+	struct animal_s const *animal_p = animal;
+	
+	(*animal_p->vptr->eat)(animal);
 }
 
-void animal_noise(struct animal_s const *animal)
+void animal_noise(void *animal)
 {
-	(*animal->vptr->noise)(animal);
+	struct animal_s const *animal_p = animal;
+	
+	(*animal_p->vptr->noise)(animal);
 }
 
-void animal_name(struct animal_s *animal)
+void animal_name(void *animal)
 {
-	printf("%s\n", animal->name);
+	struct animal_s const *animal_p = animal;
+	
+	printf("%s\n", animal_p->name);
 }
 
 void animal_ctor(struct animal_s *animal, char *name)

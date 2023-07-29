@@ -1,13 +1,22 @@
-CFLAGS =	-O2 -Wall -c
-LDFLAGS =	-O2 -Wall
+CC = gcc
+CFLAGS = -O2 -Wall
 
-all:
-	gcc $(CFLAGS) animal.c -o animal.o
-	gcc $(CFLAGS) dog.c -o dog.o
-	gcc $(CFLAGS) cat.c -o cat.o
-	gcc $(CFLAGS) main.c -o main.o
+all: main
 
-	gcc $(LDFLAGS) animal.o dog.o cat.o main.o -o main
+main: main.o animal.o cat.o dog.o
+	$(CC) $(CFLAGS) -o main main.o animal.o cat.o dog.o
+
+main.o: main.c
+	$(CC) $(CFLAGS) -c main.c
+
+animal.o: animal.c
+	$(CC) $(CFLAGS) -c animal.c
+	
+cat.o: cat.c
+	$(CC) $(CFLAGS) -c cat.c
+	
+dog.o: dog.c
+	$(CC) $(CFLAGS) -c dog.c
 
 clean:
-	rm -rf *~ *o main
+	rm -f *.o main
